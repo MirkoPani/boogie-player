@@ -1,0 +1,25 @@
+<div class="grid">
+
+    <!-- search bar -->
+    <div class="col-12">
+        <div>
+            <span class="p-input-icon-left w-full">
+                <i class="pi pi-search"></i>
+                <input type="text" pInputText placeholder="Cerca qualcosa..." class="w-full p-button-rounded h-4rem text-center" />
+            </span>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <div class="grid">
+
+            <ng-container *ngFor="let move of Moves">
+                <div class="col-12 md:col-6 lg:col-3">
+                    <app-move-card [Card]="move"></app-move-card>
+                </div>
+            </ng-container>
+
+        </div>
+
+    </div>
+</div>
