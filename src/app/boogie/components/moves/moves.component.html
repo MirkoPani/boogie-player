@@ -5,15 +5,26 @@
         <div>
             <span class="p-input-icon-left w-full">
                 <i class="pi pi-search"></i>
-                <input type="text" pInputText placeholder="Cerca qualcosa..." class="w-full p-button-rounded h-4rem text-center" />
+
+                <input pInputText
+                       [formControl]="searchInputControl"
+                       [autocomplete]="'off'"
+                       [placeholder]="'Cerca qualcosa...'"
+                       class="w-full p-button-rounded h-4rem text-center">
+
             </span>
         </div>
+        <div class="flex flex-row gap-4 justify-content-center mt-4">
+            <p-checkbox name="groupname" (onChange)="filterMovesByDanceType()" label="Boogie" value="Boogie Woogie" [(ngModel)]="selectedDanceTypes"></p-checkbox>
+            <p-checkbox name="groupname" (onChange)="filterMovesByDanceType()" label="Lindy" value="Lindy Hop" [(ngModel)]="selectedDanceTypes"></p-checkbox>
+        </div>
+
     </div>
 
     <div class="col-12">
         <div class="grid">
 
-            <ng-container *ngFor="let move of Moves">
+            <ng-container *ngFor="let move of filteredMoves">
                 <div class="col-12 md:col-6 lg:col-3">
                     <app-move-card [Card]="move"></app-move-card>
                 </div>

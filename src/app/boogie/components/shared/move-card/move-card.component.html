@@ -1,14 +1,16 @@
-<p-card header="{{Card?.name}}" [style]="{'margin-bottom': '2em'}">
+<p-card header="{{Card.name}}">
     <ng-template pTemplate="header">
-        <video controls class="w-full"  muted autoplay loop [muted]="'muted'">
-            <source [src]="'./assets/moves/' + Card?.src + '.webm'" type="video/webm">
+        <video controls class="w-full" muted [preload]="'none'" [muted]="'muted'" [poster]="'./assets/moves/thumb/' + Card.src + '.jpg'">
+            <source [src]="'./assets/moves/' + Card.src + '.webm'" type="video/webm">
         </video>
     </ng-template>
 
-    <ng-container *ngFor="let label of Card?.labels">
-        <p-tag styleClass="mr-2" value="{{label}}"></p-tag>
+    <ng-container *ngFor="let label of Card.labels">
+
+        <p-tag styleClass="mr-2" value="{{label}}" [severity]="label === 'Boogie Woogie' ? 'info': 'warning'"></p-tag>
+
     </ng-container>
 
     <p-divider></p-divider>
-    <p>{{Card?.description}}</p>
+    <p>{{Card.description}}</p>
 </p-card>

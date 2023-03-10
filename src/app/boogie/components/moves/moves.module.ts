@@ -7,6 +7,8 @@ import {CardModule} from "primeng/card";
 import {TagModule} from "primeng/tag";
 import {DividerModule} from "primeng/divider";
 import {MoveCardModule} from "../shared/move-card/move-card.module";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {CheckboxModule} from "primeng/checkbox";
 
 @NgModule({
     imports: [
@@ -16,7 +18,10 @@ import {MoveCardModule} from "../shared/move-card/move-card.module";
         CardModule,
         TagModule,
         DividerModule,
-        MoveCardModule
+        MoveCardModule,
+        ReactiveFormsModule,
+        CheckboxModule,
+        FormsModule
     ],
     declarations: [MovesComponent]
 })
